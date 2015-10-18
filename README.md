@@ -21,6 +21,10 @@ You could download the package directly as well with:
 
 If you use it in the repo-way then you will always download and install the latest nodejs. If you decide to download it with curl then you will just use that version. This is not bad, necessarily, the version will keep existing here, it won't be deleted if there's a new version packaged, but yet, is an older version.
 
+**But I'm a crazy person that wants it's docker image as small as possible, downloading the APKINDEX.tar.gz will bloat it!**
+
+If that's what worries you, then just do a `rm -rf /var/cache/apk/*` and you're done.
+
 **I'm getting a BAD signature**
 
 You probably changed the name of the package, since the signature is linked to the package name.
