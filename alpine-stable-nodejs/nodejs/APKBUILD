@@ -1,0 +1,49 @@
+# Maintainer: Jose-Luis Rivas <me@ghostbar.co>
+pkgname=nodejs
+pkgver=4.2.0
+pkgrel=0
+pkgdesc='Evented I/O for V8 javascript'
+url='http://nodejs.org/'
+arch='all'
+license='MIT'
+makedepends="$depends_dev python openssl-dev zlib-dev libuv-dev
+	linux-headers paxmark"
+subpackages="$pkgname-dev $pkgname-doc"
+source="http://nodejs.org/dist/v$pkgver/node-v$pkgver.tar.gz"
+_builddir="$srcdir"/node-v$pkgver
+
+prepare() {
+        local i
+        cd "$_builddir"
+        for i in $source; do
+                case $i in
+                *.patch) msg $i; patch -p1 -i "$srcdir"/$i || return 1;;
+                esac
+        done
+}
+
+build() {
+        cd "$_builddir"
+	./configure --prefix=/usr \
+		--shared-zlib \
+		--shared-libuv \
+		--shared-openssl || return 1
+	make || return 1
+}
+
+package() {
+	local d
+        cd "$_builddir"
+	make DESTDIR="$pkgdir" install || return 1
+	# paxmark so JIT works
+	paxmark -m "$pkgdir"/usr/bin/node || return 1
+
+	cp -pr "$pkgdir"/usr/lib/node_modules/npm/man "$pkgdir"/usr/share || return 1
+	for d in doc html man; do
+		rm -r "$pkgdir"/usr/lib/node_modules/npm/$d || return 1
+	done
+}
+
+md5sums="bd52ba3c80947a8e4a37f00f16f54dd5  node-v4.2.0.tar.gz"
+sha256sums="94ea40efeb598fed6e1a78990b698da73275c49876ec551dc36e11513c99fb6b  node-v4.2.0.tar.gz"
+sha512sums="c90b956cdb702f72e1cd6d37d3c264ab6c3b4d4f4046f4181e48946bde86983f58c94f67b2b5809e713f231cd27aae109c7c420a9007b91d35879b2de2ebc0f6  node-v4.2.0.tar.gz"
