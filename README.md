@@ -2,7 +2,7 @@
 
 This is an alternative repository for the latest nodejs packages using alpine v3.2
 
-+ **nodejs**: 4.2.0-r0
++ **nodejs**: 4.2.1-r0
 + **libuv**: 1.7.5-r0
 
 ## FAQ
@@ -14,8 +14,8 @@ This is an alternative repository for the latest nodejs packages using alpine v3
 
 You could download the package directly as well with:
 
-    curl -O https://ghostbar.github.io/alpine-alt-nodejs/v3.2/pkgs/v3.2/x86_64/nodejs-4.2.0-r0.apk
-    apk add --allow-untrusted nodejs-4.2.0-r0.apk
+    curl -O https://ghostbar.github.io/alpine-alt-nodejs/v3.2/pkgs/v3.2/x86_64/nodejs-4.2.1-r0.apk
+    apk add --allow-untrusted nodejs-4.2.1-r0.apk
 
 **Which way is better to download?**
 
