@@ -2,7 +2,7 @@
 
 This is an alternative repository for the latest nodejs packages using alpine v3.2
 
-+ **nodejs**: 4.2.1-r0
++ **nodejs**: 4.2.3-r0
 + **libuv**: 1.7.5-r0
 
 ## FAQ
