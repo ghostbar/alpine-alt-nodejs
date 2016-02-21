@@ -1,5 +1,13 @@
 # alpine-alt-nodejs
 
+## MIGRATION NOTICE
+
+Please, don't use this repo anymore, take any of [this (nodejs)](https://github.com/ghostbar/alpine-pkg-nodejs) or [this (nodejs-lts)](https://github.com/ghostbar/alpine-pkg-nodejs-lts).
+
+I'll leave this here just for anyone using it already, but it won't get updated anymore. Migrating is easy, just change the repository line.
+
+---------
+
 This is an alternative repository for the latest nodejs packages using alpine v3.2
 
 + **nodejs**: 4.2.3-r0
